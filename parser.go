@@ -29,6 +29,7 @@ func getLatestPost() (post *Item, err error) {
 	if err != nil {
 		return
 	}
+	defer resp.Body.Close()
 
 	dec := xml.NewDecoder(resp.Body)
 	err = dec.Decode(&rss)

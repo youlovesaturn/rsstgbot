@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/xml"
 	"errors"
+	"log"
 	"net/http"
 )
 
@@ -27,6 +28,7 @@ func getLatestPost() (post *Item, err error) {
 
 	resp, err := http.Get(cfg.FeedURL)
 	if err != nil {
+		log.Println(err)
 		return
 	}
 	defer resp.Body.Close()
@@ -34,6 +36,7 @@ func getLatestPost() (post *Item, err error) {
 	dec := xml.NewDecoder(resp.Body)
 	err = dec.Decode(&rss)
 	if err != nil {
+		log.Println(err)
 		return
 	}
 

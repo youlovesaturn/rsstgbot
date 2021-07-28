@@ -5,4 +5,5 @@ type config struct {
 	ChannelID      int64  `env:"CHANNEL"`
 	FeedURL        string `env:"FEEDURL"`
 	DisablePreview bool   `env:"DISABLE_PREVIEW"`
+	Filename       string `env:"FILENAME"`
 }
